@@ -1,0 +1,40 @@
+<!-- Exercise 10: Form Validation
+Task: Create a simple form with an email input field. Write a function that checks whether the entered email is valid when the form is submitted. If the email is invalid, prevent the form submission and display an error message.
+Bonus: Display a success message if the email is valid. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+
+        body{
+            text-align: center;
+            height: 90vh;
+            align-content: center;
+        }
+
+    </style>
+</head>
+<body>
+    <form>
+        <input pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Please enter a valid email address" required type="email" name="" id="emailid">
+        <button id="checkBut" onclick="checkEmail(event)">Submit</button><br>
+        <p id="warnText"></p>
+    </form>
+    <script>
+
+        emailid = document.getElementById('emailid')
+        checkBut = document.getElementById('checkBut')
+        warnText = document.getElementById("warnText")
+
+        function checkEmail(evt){
+            evt.preventDefault()
+            warnText.innerText = emailid.validity.valid?"Success":"Invalid Email"
+        }
+
+    </script>
+</body>
+</html>

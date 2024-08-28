@@ -1,0 +1,136 @@
+<!-- Exercise 8: Building a Calculator
+Task: Using functions and events, build a simple calculator that can perform addition, subtraction, multiplication, and division. The calculator should have buttons for digits 0-9, the four operations, and an equals button to display the result.
+Bonus: Add a clear button that resets the calculator. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+
+        *{
+            font-weight: bold;
+        }
+        #calculator {
+            display: flex;
+            flex-direction: column;
+            width: 150px;
+        }
+        form div.inputs input{
+            width: 50%;
+        }
+        .inputs {
+            display: flex;
+            height: 30px;
+        }
+        #result{
+            height: 35px;
+        }
+        .butContainer{
+            display: flex;
+        }
+        #opBut{
+            display: flex;
+            flex-direction: column;
+            flex: 0.3;
+        }
+        #digBut{
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+            flex: 1;
+        }
+        .result{
+            width: 100%;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+    </style>
+</head>
+<body>
+    <form action="" id="calculator">
+        <div class="inputs">
+            <input onclick=getLastCtx() id="a" type="text">
+            <input onclick=getLastCtx() id="b" type="text">
+        </div>
+        <input disabled id="result" type="text">
+        <div class="butContainer">
+            <div id="digBut"></div>
+            <div id="opBut">
+                <button onclick=currentOp(event)>+</button>
+                <button onclick=currentOp(event)>-</button>
+                <button onclick=currentOp(event)>*</button>
+                <button onclick=currentOp(event)>/</button>
+            </div>
+        </div>
+        <div>
+            <button class="result" onclick="getResult()" type="submit">Calc</button>
+        </div>        
+    </form>
+    <script>
+
+        let ctx,currOp
+
+        function currentOp(evt){
+            if(currOp!=null)
+                currOp.style.removeProperty("background-color")
+            evt.currentTarget.style.backgroundColor="red"
+            currOp=evt.currentTarget
+            ctx = document.getElementById("b")
+        }
+
+        function getLastCtx(){
+            ctx = document.activeElement
+        }
+        
+        window.onload = ()=>{
+            digbut = document.getElementById("digBut")
+            for(let i = 1;i<10;i++){
+                digbut.innerHTML+=`<button onclick=addDigits(${i})>${i}</button>`
+            }
+        }
+
+        calc = document.getElementById("calculator")
+        result = document.getElementById("result")
+        a=document.getElementById('a')
+        b=document.getElementById('b')
+        calc.onsubmit = (evt)=>{evt.preventDefault()}
+        
+        function getResult(){
+            if(!currOp)
+                return
+            aVal = Number(a.value)
+            bVal = Number(b.value)
+            switch(currOp.innerHTML){
+                case '+':
+                    result.value=aVal+bVal
+                    break
+                case '-':
+                    result.value=aVal-bVal
+                    break
+                case '*':
+                    result.value=aVal*bVal
+                    break
+                case '/':
+                    result.value=aVal/bVal
+                    break
+            }
+        }
+
+        function addDigits(i){
+            if(!ctx)
+                ctx = document.getElementById("a")
+            ele = ctx
+            if(ele.id=='a'||ele.id=='b'){
+                ele.value+=i
+            }
+        }
+    </script>
+</body>
+</html>

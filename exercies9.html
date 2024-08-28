@@ -1,0 +1,36 @@
+<!-- Exercise 9: Toggle Visibility
+Task: Create a button that toggles the visibility of a paragraph of text. When the paragraph is visible, the button should say "Hide Text"; when the paragraph is hidden, the button should say "Show Text".
+Bonus: Animate the transition between showing and hiding the text. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <h1 id="anon">Be Anonymous</h1>
+    <button id="visBut" onclick="toggleVisible()">Hide Text</button>
+    <script>
+
+        anon = document.getElementById('anon')
+        visBut = document.getElementById('visBut')
+
+        function toggleVisible(){
+            if(visBut.innerText!="Show Text"){
+                anon.style.visibility = "hidden"
+                visBut.innerText="Show Text"
+            }else{
+                anon.style.visibility = "visible"
+                visBut.innerText="Hide Text"
+            }
+
+        }
+
+    </script>
+</body>
+</html>

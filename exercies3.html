@@ -1,0 +1,39 @@
+<!-- Exercise 3: Arrow Functions
+Task: Write an arrow function named multiplyNumbers that takes two numbers as arguments and returns their product.
+Bonus: Use the arrow function inside another function named calculateProduct that prompts the user for two numbers and then displays the product using alert. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello World</h1>
+</body>
+<script>
+
+    const multiplyNumbers = (d,e)=>d*e
+
+    function calculateProduct(){
+        d = Number(prompt("Enter value of d : "))
+        e = Number(prompt("Enter value of e : "))
+        alert("Product : " + multiplyNumbers(d,e))
+    }
+
+    function calculateSum(){
+        // a = Number(prompt("Enter value a : "))
+        // b = Number(prompt("Enter value b : "))
+        return a + b;
+    }
+
+    function displaySum(c){
+        alert("Sum : " + c)
+    }
+
+    // displaySum(calculateSum())
+    calculateProduct()
+
+</script>
+</html>

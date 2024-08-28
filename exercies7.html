@@ -1,0 +1,70 @@
+<!-- Exercise 7: Preventing Default Behavior
+Task: Create a simple form with a text input and a submit button. Write a JavaScript function that prevents the form from submitting and instead displays an alert with the entered text.
+Bonus: Modify the function to prevent form submission only if the input field is empty. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #myDiv {
+            background-color: aqua;
+        }
+    </style>
+</head>
+<body>
+    <h1>Hello World</h1>
+    <button onclick=btnClicked()>Click Me</button>
+    <div id="myDiv"><h1>Just a Div</h1></div>
+    <form id="myForm" action="">
+        <input id="myText" type="text">
+        <button type="submit">Submit</button>
+    </form>
+</body>
+<script>
+
+    const multiplyNumbers = (d,e)=>d*e
+    let btnStatus = "Button was clicked!";
+
+    function calculateProduct(){
+        // d = Number(prompt("Enter value of d : "))
+        // e = Number(prompt("Enter value of e : "))
+        alert("Product : " + multiplyNumbers(d,e))
+    }
+
+    function calculateSum(){
+        // a = Number(prompt("Enter value a : "))
+        // b = Number(prompt("Enter value b : "))
+        return a + b;
+    }
+
+    function displaySum(c){
+        alert("Sum : " + c)
+    }
+
+    function btnClicked(){
+        alert(btnStatus)
+        btnStatus = "Clicked!"
+    }
+
+    mydiv = document.getElementById("myDiv")
+    mydiv.onmouseover = (evt)=> mydiv.style.backgroundColor="red"
+    mydiv.onmouseleave = (evt)=> mydiv.style.backgroundColor="aqua"
+    mydiv.onclick = (evt) => console.log("Element : " + evt.currentTarget.id,"\n X : " + evt.clientX,"\n Y : " + evt.clientY)
+
+    myform = document.getElementById("myForm")
+    mytext = document.getElementById("myText")
+    myform.onsubmit = (evt) => {
+        if(mytext.value=="")
+            evt.preventDefault()
+        else
+            alert("Input Text : " + mytext.value)
+    }
+
+    // displaySum(calculateSum())
+    // calculateProduct()
+
+</script>
+</html>

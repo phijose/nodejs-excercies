@@ -1,0 +1,46 @@
+<!-- Exercise 4: Handling Click Events
+Task: Create a button in HTML with the text "Click Me". Write a JavaScript function that displays an alert saying "Button was clicked!" when the button is clicked.
+Bonus: Modify the function to change the button's text to "Clicked!" after the first click. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello World</h1>
+    <button onclick=btnClicked()>Click Me</button>
+</body>
+<script>
+
+    const multiplyNumbers = (d,e)=>d*e
+    let btnStatus = "Button was clicked!";
+
+    function calculateProduct(){
+        // d = Number(prompt("Enter value of d : "))
+        // e = Number(prompt("Enter value of e : "))
+        alert("Product : " + multiplyNumbers(d,e))
+    }
+
+    function calculateSum(){
+        // a = Number(prompt("Enter value a : "))
+        // b = Number(prompt("Enter value b : "))
+        return a + b;
+    }
+
+    function displaySum(c){
+        alert("Sum : " + c)
+    }
+
+    function btnClicked(){
+        alert(btnStatus)
+        btnStatus = "Clicked!"
+    }
+
+    // displaySum(calculateSum())
+    // calculateProduct()
+
+</script>
+</html>
